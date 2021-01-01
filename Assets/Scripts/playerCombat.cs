@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class playerCombat : MonoBehaviour
 {
-    public Player player;
+    //public Player player;
+    public Animator animator;
     private Rigidbody2D rb;
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -25,14 +26,14 @@ public class playerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime) {
             if(Input.GetKeyDown(KeyCode.Z)) {
-                player.StandAttack();
+                Attack();
                 nextAttackTime = Time.time + 1f/attackRate;
             }
         }   
     }
 
     public void Attack() {
-        player.StandAttack();
+        animator.SetTrigger("attack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
