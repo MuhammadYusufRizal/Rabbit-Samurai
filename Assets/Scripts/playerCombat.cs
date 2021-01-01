@@ -25,21 +25,33 @@ public class playerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime) {
             if(Input.GetKeyDown(KeyCode.Z)) {
-                player.StandAttack();
+                if(!player.isRunning()){
+                    Attack();
+                }
+                else{
+                    RunAttack();
+                }
                 nextAttackTime = Time.time + 1f/attackRate;
             }
         }   
     }
 
-    public void Attack() {
-        player.StandAttack();
-
+    public void RunAttack() {
+        player.RunAttack();
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
         }
     }
+
+    public void Attack() {
+        player.StandAttack();
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach(Collider2D enemy in hitEnemies) {
+            enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
+        }
+    }
+
 
     void OnDrawGizmosSelected() {
         if(attackPoint == null) {

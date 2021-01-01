@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cade56c29238d8647b0992d5912bc1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  attack: 0
-  speed: 0
+  health: 100
+  attack: 10
+  speed: 5
   animator: {fileID: 14028076}
 --- !u!95 &14028076 stripped
 Animator:
@@ -1211,7 +1211,7 @@ PrefabInstance:
     - target: {fileID: 3818996825805961885, guid: a14e7f3d9383e94469c5984cf71ba327,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3818996825805961886, guid: a14e7f3d9383e94469c5984cf71ba327,
         type: 3}

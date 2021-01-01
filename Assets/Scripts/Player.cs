@@ -21,14 +21,18 @@ public class Player : MonoBehaviour
     }
 
     public void Idle(){
-        animator.Play("idle");
+        animator.SetBool("run", false);
     }
 
     public void Run(){
-        animator.Play("run");
+        animator.SetBool("run", true);
     }
 
-    void RunAttack(){
+    public bool isRunning(){
+        return animator.GetBool("run");
+    }
+
+    public void RunAttack(){
         animator.SetTrigger("run_attack");
     }
 }
