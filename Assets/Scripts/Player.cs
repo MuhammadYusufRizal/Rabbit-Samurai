@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     public int health;
     public int attack;
     public float speed;
-
     public Animator animator;
+
 
     Player(int health, int attack, float speed){
         this.health = health;
@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
         this.speed = speed;
     }
 
-    //public void Attack(){
-    //    animator.SetTrigger("attack");
-    //}
+    public void StandAttack(){
+       animator.SetTrigger("attack");
+    }
 
     public void Idle(){
         animator.Play("idle");
@@ -28,7 +28,12 @@ public class Player : MonoBehaviour
         animator.Play("run");
     }
 
-    //void RunAttack(){
-    //    animator.SetTrigger("run_attack");
-    //}
+    public void RunAttack(){
+       animator.SetTrigger("run_attack");
+    }
+
+    public bool Running() {
+        return animator.GetBool("run");
+    }
+
 }
