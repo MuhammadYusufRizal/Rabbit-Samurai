@@ -7,6 +7,7 @@ public class playerMovement : MonoBehaviour
     public Player player;
     private Rigidbody2D rb;
     private float dirX, dirY;
+    public float speed = 0f;
     private Vector3 localScale;
 
     void Start() {

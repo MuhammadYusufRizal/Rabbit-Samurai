@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public int attack;
     public float speed;
+    public float delay = 0f;
 
     public Animator animator;
 
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void Attack(){
-        animator.SetTrigger("enemy_attack");
+        animator.SetTrigger("Attack");
     }
     
     public void Run(){
@@ -29,12 +30,12 @@ public class Enemy : MonoBehaviour
     }
 
     public void Die(){
-       Debug.Log("Enemy died!");
-        // animator.SetBool("IsDead", true);
+        Debug.Log("Enemy died!");
+        animator.SetBool("IsDead", true);
 
-        // GetComponent<Collider2D>().enabled = false;
-        // this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
 
-        // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+        Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
     }
 }

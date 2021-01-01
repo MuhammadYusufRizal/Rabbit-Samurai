@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
         this.speed = speed;
     }
 
-    public void StandAttack(){
-        animator.SetTrigger("attack");
-    }
+    //public void Attack(){
+    //    animator.SetTrigger("attack");
+    //}
 
     public void Idle(){
         animator.SetBool("run", false);
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         animator.SetBool("run", true);
     }
 
+<<<<<<< HEAD
     public bool isRunning(){
         return animator.GetBool("run");
     }
@@ -35,4 +36,9 @@ public class Player : MonoBehaviour
     public void RunAttack(){
         animator.SetTrigger("run_attack");
     }
+=======
+    //void RunAttack(){
+    //    animator.SetTrigger("run_attack");
+    //}
+>>>>>>> 8d9894008a5b0bbe3d93bd8bfefa07939f578d1c
 }
