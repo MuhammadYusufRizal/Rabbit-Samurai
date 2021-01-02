@@ -141,7 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3327c61bc327d204aa5093c39931a1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  health: 100
+  attack: 10
+  speed: 5
+=======
   enemy: {fileID: 1105379406}
+>>>>>>> 8d9894008a5b0bbe3d93bd8bfefa07939f578d1c
   animator: {fileID: 14028076}
   enemyLayers:
     serializedVersion: 2
@@ -1117,8 +1123,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3818996825805961881, guid: a14e7f3d9383e94469c5984cf71ba327,
         type: 3}
+<<<<<<< HEAD
+      propertyPath: m_Enabled
+      value: 1
+=======
       propertyPath: m_Layer
       value: 8
+>>>>>>> 8d9894008a5b0bbe3d93bd8bfefa07939f578d1c
       objectReference: {fileID: 0}
     - target: {fileID: 5012522005253268022, guid: a14e7f3d9383e94469c5984cf71ba327,
         type: 3}

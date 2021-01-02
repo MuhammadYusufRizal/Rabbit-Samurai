@@ -26,12 +26,23 @@ public class playerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime) {
             if(Input.GetKeyDown(KeyCode.Z)) {
+<<<<<<< HEAD
                 if(!player.Running()){
+=======
+<<<<<<< HEAD
+                if(!player.isRunning()){
+>>>>>>> 1d0479c8225db9feee61529b7aa8e9b0256a2fc1
                     Attack();
                 }
                 else{
                     RunAttack();
                 }
+<<<<<<< HEAD
+=======
+=======
+                Attack();
+>>>>>>> 8d9894008a5b0bbe3d93bd8bfefa07939f578d1c
+>>>>>>> 1d0479c8225db9feee61529b7aa8e9b0256a2fc1
                 nextAttackTime = Time.time + 1f/attackRate;
             }
         }   
@@ -39,6 +50,7 @@ public class playerCombat : MonoBehaviour
 
     public void RunAttack() {
         player.RunAttack();
+<<<<<<< HEAD
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
@@ -48,6 +60,22 @@ public class playerCombat : MonoBehaviour
     public void Attack() {
         player.StandAttack();
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+=======
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach(Collider2D enemy in hitEnemies) {
+            enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
+        }
+    }
+
+    public void Attack() {
+<<<<<<< HEAD
+        player.StandAttack();
+=======
+        animator.SetTrigger("attack");
+
+>>>>>>> 8d9894008a5b0bbe3d93bd8bfefa07939f578d1c
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+>>>>>>> 1d0479c8225db9feee61529b7aa8e9b0256a2fc1
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
         }
