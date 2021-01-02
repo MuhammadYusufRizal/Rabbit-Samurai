@@ -833,9 +833,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 839036529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8446ac54776bfa74d8afc7f735579fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 85210bcf56a9d7c48b3065b1a84e1d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1798167904}
+  speed: 5
 --- !u!114 &839036531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,10 +847,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 839036529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb73c7cd80d64742acc0d222bf0c09e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d07a2a5ccb02d74081f99e696f2f6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 839036534}
+  player: {fileID: 1798167904}
   attackPoint: {fileID: 697004258}
   enemyLayers:
     serializedVersion: 2
@@ -856,12 +858,6 @@ MonoBehaviour:
   attackRange: 2
   attackDamage: 40
   attackRate: 2
---- !u!95 &839036534 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7000619374905287981, guid: 8952359e730db2f4b8c6be3432fa4c90,
-    type: 3}
-  m_PrefabInstance: {fileID: 567003715}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &960694493
 LightingSettings:
   m_ObjectHideFlags: 0

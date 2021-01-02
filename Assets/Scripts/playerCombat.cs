@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class playerCombat : MonoBehaviour
 {
-    public Animator animator;
+    public Player player;
+    //public Animator animator;
     private Rigidbody2D rb;
-
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
@@ -16,6 +16,7 @@ public class playerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -25,22 +26,33 @@ public class playerCombat : MonoBehaviour
     {
         if(Time.time >= nextAttackTime) {
             if(Input.GetKeyDown(KeyCode.Z)) {
-                Attack();
+                if(!player.Running()){
+                    Attack();
+                }
+                else{
+                    RunAttack();
+                }
                 nextAttackTime = Time.time + 1f/attackRate;
-
             }
         }   
     }
 
-    public void Attack() {
-        animator.SetTrigger("attack");
-
+    public void RunAttack() {
+        player.RunAttack();
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
         }
     }
+
+    public void Attack() {
+        player.StandAttack();
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach(Collider2D enemy in hitEnemies) {
+            enemy.GetComponent<enemyAI>().TakeDamage(attackDamage);
+        }
+    }
+
 
     void OnDrawGizmosSelected() {
         if(attackPoint == null) {

@@ -1,24 +1,27 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
+    public Player player;
+    //public Animator anim;
     private Rigidbody2D rb;
-    private Animator anim;
-    private float dirX, dirY, speed;
+    private float dirX, dirY;
+    public float speed = 0f;
     private Vector3 localScale;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        speed = 5f;
+        player.animator = GetComponent<Animator>();
+    
+        player = GetComponent<Player>();
         localScale = transform.localScale;
     }
 
     void Update() {
-        dirX = Input.GetAxisRaw("Horizontal") * speed;
-        dirY = Input.GetAxisRaw("Vertical") * speed;
+        dirX = Input.GetAxisRaw("Horizontal") * player.speed;
+        dirY = Input.GetAxisRaw("Vertical") * player.speed;
 
         AnimationControl();
     }
@@ -38,10 +41,10 @@ public class playerMovement : MonoBehaviour
 
     private void AnimationControl() {
         if(rb.velocity.y == 0 && rb.velocity.x == 0) {
-            anim.Play("idle_right");
+            player.Idle();
         }
         if(rb.velocity.x != 0 || rb.velocity.y != 0) {
-            anim.Play("run");
+            player.Run();
         }
     }
 }
